@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 /* eslint-disable @typescript-eslint/camelcase */
 module.exports = {
   siteMetadata: {
@@ -18,6 +20,16 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         tailwind: true, // Enable tailwindcss support
+      },
+    },
+    {
+      resolve: 'gatsby-source-google-sheets-flexible',
+      options: {
+        apiKey: process.env.GATSBY_GOOGLE_CREDENTIALS,
+        spreadsheetUrl: process.env.GATSBY_SHEET_URL,
+        tabName: 'master',
+        cellRange: 'A1:L1000',
+        majorDimension: 'ROWS',
       },
     },
     {

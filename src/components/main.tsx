@@ -31,7 +31,7 @@ const Main: React.FC<Props> = ({ allHbbData }) => {
   }
 
   return (
-    <div>
+    <div className="px-4">
       <div className="max-w-2xl mx-auto py-8">
         <p className="text-lg mb-1">I am looking for</p>
         <input
@@ -40,7 +40,7 @@ const Main: React.FC<Props> = ({ allHbbData }) => {
           placeholder="e.g. Halal Lasagna Delivery"
         />
       </div>
-      <div className="py-8 grid grid-cols-3 gap-12">{renderHBBCards()}</div>
+      <div className="py-8 grid grid-cols-1 md:grid-cols-3 gap-12">{renderHBBCards()}</div>
       <HBBModal Modal={Modal} hbbData={selectedHbbData} isOpen={isOpen} />
     </div>
   )

@@ -23,7 +23,7 @@ const Main: React.FC<Props> = ({ allHbbData }) => {
     onClose: () => {},
   }
 
-  const { isOpen, openModal, Modal } = useModal(useModalOptions)
+  const { isOpen, openModal, closeModal, Modal } = useModal(useModalOptions)
 
   const handleOpenModal = (e, hbbData: HbbData) => {
     setSelectedHbbData(hbbData)
@@ -151,7 +151,7 @@ const Main: React.FC<Props> = ({ allHbbData }) => {
         {renderTagsSection()}
       </div>
       <div className="py-8 grid grid-cols-1 md:grid-cols-3 gap-12">{renderHBBCards()}</div>
-      <HBBModal Modal={Modal} hbbData={selectedHbbData} isOpen={isOpen} />
+      <HBBModal Modal={Modal} hbbData={selectedHbbData} isOpen={isOpen} closeModal={closeModal} />
     </div>
   )
 }

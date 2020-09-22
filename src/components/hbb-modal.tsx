@@ -6,8 +6,9 @@ interface Props {
   Modal: (props) => JSX.Element
   hbbData: HbbData
   isOpen: boolean
+  closeModal: () => {}
 }
-const HBBModal: React.FC<Props> = ({ Modal, hbbData, isOpen }) => {
+const HBBModal: React.FC<Props> = ({ Modal, hbbData, isOpen, closeModal }) => {
   const { name, description, image, items, dietaryTypes, collectionMethods, tags, socials, contact } = hbbData
 
   if (!isOpen) {
@@ -75,8 +76,14 @@ const HBBModal: React.FC<Props> = ({ Modal, hbbData, isOpen }) => {
 
   return (
     <Modal>
-      <div className={`shadow-xl bg-white min-h-64 b-8  rounded-lg w-screen md:max-w-screen-md`}>
+      <div className={`shadow-xl bg-white min-h-64 b-8  rounded-lg w-screen md:max-w-screen-md relative`}>
         <img src={image} className="w-full object-cover" />
+        <div
+          className="bg-gray-600 text-white absolute mt-1 mr-1 top-0 right-0 rounded-full px-2 border border-gray-200 cursor-pointer hover:font-semibold"
+          onClick={closeModal}
+        >
+          x
+        </div>
         <div className="p-8">
           <h2 className="text-2xl font-bold">{name}</h2>
           <p>{description}</p>

@@ -76,14 +76,8 @@ const HBBModal: React.FC<Props> = ({ Modal, hbbData, isOpen, closeModal }) => {
 
   return (
     <Modal>
-      <div className={`shadow-xl bg-white min-h-64 b-8  rounded-lg w-screen md:max-w-screen-md relative`}>
+      <div className={`shadow-xl bg-white min-h-64 b-8  rounded-lg w-screen md:max-w-screen-md`}>
         <img src={image} className="w-full object-cover" />
-        <div
-          className="bg-gray-600 text-white absolute mt-1 mr-1 top-0 right-0 rounded-full px-2 border border-gray-200 cursor-pointer hover:font-semibold"
-          onClick={closeModal}
-        >
-          x
-        </div>
         <div className="p-8">
           <h2 className="text-2xl font-bold">{name}</h2>
           <p>{description}</p>
@@ -95,9 +89,15 @@ const HBBModal: React.FC<Props> = ({ Modal, hbbData, isOpen, closeModal }) => {
               href={contact}
               target="_blank"
               rel="noreferrer"
-              className="bg-orange-500 hover:bg-orange-700 text-white py-3 px-4 rounded font-light text-lg"
+              className="border border-orange-500 bg-orange-500 hover:bg-orange-700 text-white py-3 px-4 rounded font-light text-lg mr-2"
             >
               Contact Shop
+            </a>
+            <a
+              className="border border-orange-500 hover:bg-orange-700 text-orange-500 hover:text-white py-3 px-4 rounded font-light text-lg cursor-pointer"
+              onClick={closeModal}
+            >
+              Close
             </a>
           </div>
         </div>

@@ -5,7 +5,7 @@ export interface HbbData {
   description: string
   items: string[]
   dietaryTypes: string[]
-  collectionsMethods: string[]
+  collectionMethods: string[]
   tags: string[]
   socials: Social[]
   contact: string
@@ -24,7 +24,7 @@ export interface HbbSheetsData {
   image: string
   items: string
   dietaryTypes: string
-  collectionsMethods: string
+  collectionMethods: string
   tags: string
   instagram: string
   facebook: string
@@ -98,7 +98,7 @@ export const transformHbbData = (allHbbSheetsData: HbbSheetsData[]): HbbData[] =
       image,
       items,
       dietaryTypes,
-      collectionsMethods,
+      collectionMethods,
       tags,
       instagram,
       facebook,
@@ -114,7 +114,7 @@ export const transformHbbData = (allHbbSheetsData: HbbSheetsData[]): HbbData[] =
       image,
       items: transformToArray(items),
       dietaryTypes: transformToArray(dietaryTypes),
-      collectionsMethods: transformToArray(collectionsMethods),
+      collectionMethods: transformToArray(collectionMethods),
       tags: transformToArray(tags),
       socials: transformSocials(instagram, facebook, twitter, website),
       contact: contact,

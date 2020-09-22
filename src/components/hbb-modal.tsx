@@ -7,7 +7,7 @@ interface Props {
   isOpen: boolean
 }
 const HBBModal: React.FC<Props> = ({ Modal, hbbData, isOpen }) => {
-  const { name, description, image, items, dietaryTypes, collectionsMethods, tags, socials, contact } = hbbData
+  const { name, description, image, items, dietaryTypes, collectionMethods, tags, socials, contact } = hbbData
 
   if (!isOpen) {
     return <></>
@@ -39,7 +39,7 @@ const HBBModal: React.FC<Props> = ({ Modal, hbbData, isOpen }) => {
           <h3 className="font-semibold">Other Details</h3>
           <ul>
             {renderList(dietaryTypes)}
-            {renderList(collectionsMethods)}
+            {renderList(collectionMethods)}
             {renderList(tags)}
           </ul>
         </div>

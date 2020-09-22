@@ -65,7 +65,7 @@ const HBBModal: React.FC<Props> = ({ Modal, hbbData, isOpen, closeModal }) => {
   const renderSocialsSection = () => {
     if (!!socials && socials.length > 0) {
       return (
-        <div className="mt-2">
+        <div className="mt-4">
           <h3 className="font-semibold">Links</h3>
           <ul>{renderSocialsList()}</ul>
         </div>

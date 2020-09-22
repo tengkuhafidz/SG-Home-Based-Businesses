@@ -58,7 +58,7 @@ const transformSocials = (
     socials.push({
       name: 'instagram',
       url: instagramUrl,
-      faIcon: 'fab fa-instagram-square',
+      faIcon: 'fab fa-instagram',
     })
   }
 
@@ -66,7 +66,7 @@ const transformSocials = (
     socials.push({
       name: 'facebook',
       url: facebookUrl,
-      faIcon: 'fab fa-facebook-square',
+      faIcon: 'fab fa-facebook',
     })
   }
 
@@ -74,7 +74,7 @@ const transformSocials = (
     socials.push({
       name: 'twitter',
       url: twitterUrl,
-      faIcon: 'fab fa-twitter-square',
+      faIcon: 'fab fa-twitter',
     })
   }
 
@@ -82,7 +82,7 @@ const transformSocials = (
     socials.push({
       name: 'website',
       url: websiteUrl,
-      faIcon: 'fas fa-external-link-square-alt',
+      faIcon: 'fas fa-globe',
     })
   }
 

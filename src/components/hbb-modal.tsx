@@ -1,5 +1,6 @@
 import React from 'react'
 import { HbbData } from '../utils/models'
+import '@fortawesome/fontawesome-free/css/all.css'
 
 interface Props {
   Modal: (props) => JSX.Element
@@ -13,35 +14,37 @@ const HBBModal: React.FC<Props> = ({ Modal, hbbData, isOpen }) => {
     return <></>
   }
 
-  const renderList = (listItems: string[]) => {
-    if (!!listItems && listItems.length > 0) {
-      return listItems.map((listItem) => <li key={listItem}>{listItem}</li>)
+  const allTags = [...(dietaryTypes || []), ...(collectionMethods || []), ...(tags || [])]
+
+  const renderTags = () =>
+    allTags.map((tag) => (
+      <span
+        className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2"
+        key={tag}
+      >
+        #{tag}
+      </span>
+    ))
+
+  const renderTagsSection = () => {
+    if (allTags.length < 1) {
+      return <></>
+    }
+    return <div className="pt-4 pb-2">{renderTags()}</div>
+  }
+
+  const renderMenuItems = (menuItems: string[]) => {
+    if (!!menuItems && menuItems.length > 0) {
+      return menuItems.map((item) => <li key={item}>{item}</li>)
     }
     return <></>
   }
-
   const renderMenuSection = () => {
     if (!!items && items.length > 0) {
       return (
         <div className="mt-2">
           <h3 className="font-semibold">Menu</h3>
-          <ul>{renderList(items)}</ul>
-        </div>
-      )
-    }
-    return <></>
-  }
-
-  const renderOtherDetailsSection = () => {
-    if (!!items && items.length > 0) {
-      return (
-        <div className="mt-2">
-          <h3 className="font-semibold">Other Details</h3>
-          <ul>
-            {renderList(dietaryTypes)}
-            {renderList(collectionMethods)}
-            {renderList(tags)}
-          </ul>
+          <ul>{renderMenuItems(items)}</ul>
         </div>
       )
     }
@@ -50,9 +53,9 @@ const HBBModal: React.FC<Props> = ({ Modal, hbbData, isOpen }) => {
 
   const renderSocialsList = () => {
     return socials.map((social) => (
-      <li key={social.name}>
+      <li className="inline-block" key={social.name}>
         <a href={social.url} className="underline text-gray-600">
-          {social.url}
+          <i className={`${social.faIcon} text-2xl mt-2 mr-4 hover:text-orange-600`}></i>
         </a>
       </li>
     ))
@@ -77,10 +80,10 @@ const HBBModal: React.FC<Props> = ({ Modal, hbbData, isOpen }) => {
         <div className="p-8">
           <h2 className="text-2xl font-bold">{name}</h2>
           <p>{description}</p>
+          {renderTagsSection()}
           {renderMenuSection()}
-          {renderOtherDetailsSection()}
           {renderSocialsSection()}
-          <div className="my-8">
+          <div className="mt-12 mb-8">
             <a
               href={contact}
               target="_blank"
